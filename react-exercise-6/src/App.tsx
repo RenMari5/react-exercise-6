@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { fetchAllPosts } from "./services/post.service";
-import { Quote } from "./types";
+import { Forecast, Quote } from "./types";
 
 function App() {
   const [posts, setPosts] = useState<Quote[]>([]);
-  const [post, setPost] = useState<Quote>();
+  const [forecast, setForecast] = useState<Forecast[]>([]);
 
   useEffect(() => {
     getAllPosts();
@@ -15,10 +15,22 @@ function App() {
     fetchAllPosts().then((response) => setPosts(response.data));
   }
 
+  useEffect(() => {
+    getAllForecasts();
+  }, []);
+
+  function getAllForecasts() {
+    fetchAllPosts().then((response) => setPosts(response.data));
+  }
+
   return (
     <div className="App">
       <h1>Weather Forecast</h1>
-
+      <ul>
+        {forecast.map((forecast) => (
+          <li key={forecast.name}>{forecast.name}</li>
+        ))}
+      </ul>
       <h1>Quotable Quotes</h1>
       <ul>
         {posts.map((post) => (
