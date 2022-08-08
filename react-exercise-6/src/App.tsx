@@ -33,6 +33,12 @@ function App() {
         {forecast.map((forecast) => (
           <li key={forecast.name}>{forecast.temperature}</li>
         ))}
+        {forecast.map((forecast) => (
+          <li key={forecast.name}>{forecast.icon}</li>
+        ))}
+        {forecast.map((forecast) => (
+          <li key={forecast.name}>{forecast.detailedForecast}</li>
+        ))}
       </ul>
       <h1>Quotable Quotes</h1>
       <ul>
