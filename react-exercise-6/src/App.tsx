@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { fetchAllForecasts, fetchAllPosts } from "./services/post.service";
-import { Forecast, Quote } from "./types";
+import { Period, Quote } from "./types";
 
 function App() {
   const [posts, setPosts] = useState<Quote[]>([]);
-  const [forecast, setForecast] = useState<Forecast[]>([]);
+  const [forecast, setForecast] = useState<Period[]>([]);
 
   useEffect(() => {
     getAllPosts();

@@ -3,7 +3,13 @@ export interface Quote {
   author: string;
 }
 
-export interface Forecast {
+export interface WeatherForecast {
+  properties: {
+    periods: Period[];
+  };
+}
+
+export interface Period {
   name: string;
   temperature: number;
   icon: string;

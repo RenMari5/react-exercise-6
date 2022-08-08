@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Forecast, Quote } from "../types";
+import { Period, Quote } from "../types";
 
 export function fetchAllPosts() {
   return axios
@@ -13,7 +13,7 @@ export function fetchAllPosts() {
 
 export function fetchAllForecasts() {
   return axios
-    .get<Forecast[]>("https://api.weather.gov/gridpoints/DTX/65,33/forecast")
+    .get<Period[]>("https://api.weather.gov/gridpoints/DTX/65,33/forecast")
     .then((response) => {
       // console.log(response);
       // console.log(response.data);
