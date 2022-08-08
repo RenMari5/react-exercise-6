@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { fetchAllPosts } from "./services/post.service";
+import { fetchAllForecasts, fetchAllPosts } from "./services/post.service";
 import { Forecast, Quote } from "./types";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   function getAllForecasts() {
-    fetchAllPosts().then((response) => setPosts(response.data));
+    fetchAllForecasts().then((response) => setForecast(response.data));
   }
 
   return (
@@ -29,6 +29,9 @@ function App() {
       <ul>
         {forecast.map((forecast) => (
           <li key={forecast.name}>{forecast.name}</li>
+        ))}
+        {forecast.map((forecast) => (
+          <li key={forecast.name}>{forecast.temperature}</li>
         ))}
       </ul>
       <h1>Quotable Quotes</h1>
